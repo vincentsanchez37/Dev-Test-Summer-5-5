@@ -1,0 +1,76 @@
+/* 
+Author: Vincent Sanchez 
+Title: Main.css
+*/
+
+
+/* These are the style for the HTML page */
+
+html {
+    background-color: gray;
+    min-height: 500px;
+}
+
+
+/* These are the style for the two option list and the text field */
+
+#s1 {
+    position: absolute;
+    left: 15%;
+    top: 100px;
+}
+
+#s2 {
+    position: absolute;
+    left: 45%;
+    top: 100px;
+}
+
+#s3 {
+    position: absolute;
+    left: 75%;
+    top: 100px;
+    height: 3.5em;
+    width: 10em;
+}
+
+select {
+    height: 4em;
+    width: 10em;
+}
+
+
+/* These are the styles for the headers above each of the option field and text field */
+
+#l1 {
+    position: absolute;
+    left: 15%;
+    top: 55px;
+}
+
+#l2 {
+    position: absolute;
+    left: 45%;
+    top: 55px;
+}
+
+#l3 {
+    position: absolute;
+    left: 75%;
+    top: 55px;
+}
+
+
+/* These are the styles for the button and header that are used to inform the user the different between selected date and current date */
+
+#DaysFrom {
+    position: absolute;
+    left: 15%;
+    top: 200px;
+}
+
+button {
+    position: absolute;
+    left: 40%;
+    top: 375px;
+}

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<!-- Author: Vincent Sanchez
+     Title: Home.html
+     Project: Create a webpage that user can select a date and recieve a comparion of current date versus their selection -->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="Main.css">
+</head>
+
+
+
+<body>
+    <div>
+        <!-- This is the code for the first option list for months -->
+        <h3 id="l1">Month</h3>
+        <select name="Month" id="s1">
+            <option value="0">January</option>
+            <option value="1">Feburary</option>
+            <option value="2">March</option>
+            <option value="3">April</option>
+            <option value="4">May</option>
+            <option value="5">June</option>
+            <option value="6">July</option>
+            <option value="7">August</option>
+            <option value="8">September</option>
+            <option value="9">October</option>
+            <option value="10">November</option>
+            <option value="11">December</option>
+
+        </select>
+
+    </div>
+
+    <div>
+        <!-- This is the code for the second option list for the day of the month -->
+        <h3 id="l2">Day</h3>
+        <select name="Day" id="s2">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <option value="21">21</option>
+            <option value="22">22</option>
+            <option value="23">23</option>
+            <option value="24">24</option>
+            <option value="25">25</option>
+            <option value="26">26</option>
+            <option value="27">27</option>
+            <option value="28">28</option>
+            <option value="29" class="notFeb" id="notFeb">29</option>
+            <option value="30" class="notFeb leapYear" id="notFeb">30</option>
+            <option value="31" class="notFeb leapYear" id="notFeb">31</option>
+            
+        </select>
+    </div>
+
+    <div>
+        <!-- This is the code for the text field that will be used for the year -->
+        <h3 id="l3">Year</h3>
+        <input type="text" id="s3">
+
+    </div>
+
+    <div>
+        <!-- This is the header that will hold the information needed for counting how many day till the current selection is from current date -->
+        <button type="button" id="btn">Compare Selected Dates to current Date</button>
+        <h1 id="DaysFrom"></h1>
+    </div>
+
+
+
+
+    <script>
+        //Get the current date and assign to variables
+        var currDate = new Date();
+        var currMonth = currDate.getMonth();
+        var currDay = currDate.getDate();
+        var currYear = currDate.getFullYear();
+
+        //Check if varable have been passed if not fill field with current date (Not Complete)
+
+        document.getElementById("s1").value = currMonth;
+
+        document.getElementById("s2").value = currDay;
+
+        document.getElementById("s3").value = currYear;
+
+
+        //Creation of needed variables
+        var selectMonth;
+        var selectDay;
+        var selectYear;
+        var monthDif;
+        var dayDif;
+        var yearDif;
+        var comMonth;
+        var comDay;
+        var comYear;
+        //Code for if the month chosen is February to remove day to only leave 28
+        document.getElementById("s1").addEventListener('change', function() {
+            selectMonth = document.getElementById("s1").value
+            monthDif = selectMonth - currMonth;
+            if (selectMonth == "1") {
+                for (const elem of document.querySelectorAll('.notFeb')) {
+                    elem.style.display = 'none';
+                }
+            } else {
+                for (const elem of document.querySelectorAll('.notFeb')) {
+                    elem.style.display = 'block';
+                }
+            }
+        });
+
+        //Code for assigning variables the difference from selected date in browser and current date variables 
+        document.getElementById("s2").addEventListener('change', function() {
+            selectDay = document.getElementById("s2").value;
+            dayDif = selectDay - currDay;
+        });
+
+        document.getElementById("s3").addEventListener('change', function() {
+            selectYear = document.getElementById("s3").value;
+            yearDif = selectYear - currYear;
+        });
+
+
+        //Code for button to check if any of the differences are in the negatives and change them to positive numbers while writing a message about the date difference
+        document.getElementById("btn").addEventListener('click', function() {
+
+            if (yearDif < 0) {
+                comYear = yearDif * -1
+            } else {
+                comYear = yearDif;
+            }
+
+            if (monthDif < 0) {
+                comMonth = monthDif * -1;
+            } else {
+                comMonth = monthDif;
+            }
+
+            if (dayDif < 0) {
+                comDay = dayDif * -1;
+            } else {
+                comDay = dayDif;
+            }
+            //document.getElementById("DaysFrom").innerHTML = comDay;
+            document.getElementById("DaysFrom").innerHTML = "The current difference of the current selection from todays date is " + comYear + " Years, " + comMonth + " Month, and " + comDay + " days";
+        })
+
+
+        //This code is to pass the value from the current selection in the browser into cookie in order for information to be kept if the user refreshes the page(Not Complete)
+    </script>
+
+
+</body>
+
+</html>
