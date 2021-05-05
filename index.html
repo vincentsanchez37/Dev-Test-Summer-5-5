@@ -102,7 +102,7 @@
         //Check if varable have been passed if not fill field with current date (Not Complete)
         
         if(sessionStorage.getItem("pMonth")){
-            document.getElementById("s1").value =  sessionStorage.getItem("pMonth");
+            document.getElementById("s1").value = sessionStorage.getItem("pMonth");
         }else{
         document.getElementById("s1").value = currMonth;
 
@@ -110,7 +110,7 @@
         }
 
         if(sessionStorage.getItem("pDay")){
-            document.getElementById("s2").value =  sessionStorage.getItem("pDay");
+            document.getElementById("s2").value = sessionStorage.getItem("pDay");
 
         
         }
@@ -119,14 +119,11 @@
         }
 
         if(sessionStorage.getItem("pYear")){
-            document.getElementById("s3").value =  sessionStorage.getItem("pYear");
+            document.getElementById("s3").value = sessionStorage.getItem("pYear");
         }
         else{
              document.getElementById("s3").value = currYear;   
         }
-
-
-
         //Creation of needed variables
         var selectMonth;
         var selectDay;
