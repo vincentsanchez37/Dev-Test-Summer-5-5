@@ -100,12 +100,31 @@
         var currYear = currDate.getFullYear();
 
         //Check if varable have been passed if not fill field with current date (Not Complete)
-
+        
+        if(sessionStorage.getItem("pMonth")){
+            document.getElementById("s1").value =  sessionStorage.getItem("pMonth");
+        }else{
         document.getElementById("s1").value = currMonth;
 
-        document.getElementById("s2").value = currDay;
+           
+        }
 
-        document.getElementById("s3").value = currYear;
+        if(sessionStorage.getItem("pDay")){
+            document.getElementById("s2").value =  sessionStorage.getItem("pDay");
+
+        
+        }
+        else{
+            document.getElementById("s2").value = currDay;
+        }
+
+        if(sessionStorage.getItem("pYear")){
+            document.getElementById("s3").value =  sessionStorage.getItem("pYear");
+        }
+        else{
+             document.getElementById("s3").value = currYear;   
+        }
+
 
 
         //Creation of needed variables
@@ -171,6 +190,21 @@
 
 
         //This code is to pass the value from the current selection in the browser into cookie in order for information to be kept if the user refreshes the page(Not Complete)
+        
+        document.getElementById("s1").addEventListener('change', function() {
+            sessionStorage.setItem("pMonth", selectMonth.value);
+        });
+
+        document.getElementById("s2").addEventListener('change', function() {
+            sessionStorage.setItem("pDay", selectDay.value);
+        });
+
+        document.getElementById("s3").addEventListener('change', function() {
+            sessionStorage.setItem("pYear", selectYear.value);
+        });
+        
+        
+        
     </script>
 
 
